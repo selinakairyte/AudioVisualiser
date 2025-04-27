@@ -46,21 +46,29 @@ function ControlsAndInput() {
 
 		//playback button
 		this.playbackButton.draw();
-		//only draw the menu if menu displayed is set to true.
-		if (this.menuDisplayed) {
-			text("Select a visualisation:", 50, 50);
-			this.menu();
-		}
+		this.menu();
 		pop();
 
 
 	};
 
-	this.menu = function() {
+	this.drawMenu = function() {
 		//draw out menu items for each visualisation
 		//???	
-		for (let i = 0; i < vis.visuals.length; i++) {
-			text((i + 1) + ': ' + vis.visuals[i].name, 50, 100 + i * 50);
-		}  
-	};
+		//only draw the menu if menu displayed is set to true.
+		if (this.menuDisplayed) {
+			push();
+			fill("white");
+			stroke("black");
+			strokeWeight(2);
+			textSize(34);
+			
+			text("Select a visualisation:", 50, 50);
+		
+			for (let i = 0; i < vis.visuals.length; i++) {
+			  text((i + 1) + ': ' + vis.visuals[i].name, 50, 100 + i * 50);
+			}
+			pop();
+		  }
+};
 }
