@@ -21,7 +21,7 @@ function Visualisations() {
 	this.selectVisual = function(visName) {
 		for (var i = 0; i < this.visuals.length; i++) {
 			if (visName == this.visuals[i].name) {
-				this.selectedVisual = this.visuals[i];
+				this.selectedVisual = "     " + this.visuals[i];
 			}
 		}
 	};

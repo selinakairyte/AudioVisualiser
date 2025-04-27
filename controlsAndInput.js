@@ -9,6 +9,14 @@ function ControlsAndInput() {
 
 	//make the window fullscreen or revert to windowed
 	this.mousePressed = function() {
+		if (playbackButton.hitCheck()) {
+			playbackButton.toggle();
+		} else {
+			let fulls = fullscreen();
+			fullscreen(!fulls);
+		}
+		  
+		  
 		//???
 		//check if the playback button has been clicked
 		//if not make the visualisation fullscreen
@@ -40,15 +48,19 @@ function ControlsAndInput() {
 		this.playbackButton.draw();
 		//only draw the menu if menu displayed is set to true.
 		if (this.menuDisplayed) {
-			text("Select a visualisation:", 100, 30);
+			text("Select a visualisation:", 50, 50);
 			this.menu();
 		}
 		pop();
+
 
 	};
 
 	this.menu = function() {
 		//draw out menu items for each visualisation
-		//???
+		//???	
+		for (let i = 0; i < vis.visuals.length; i++) {
+			text((i + 1) + ': ' + vis.visuals[i].name, 50, 100 + i * 50);
+		}  
 	};
 }
